@@ -1,5 +1,5 @@
 import * as React from "react";
-// import { BrowserRouter } from "react-router-dom";
+import "./index.scss";
 import type { HeadFC, PageProps } from "gatsby";
 
 import App from "./App";
