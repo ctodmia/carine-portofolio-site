@@ -10,6 +10,7 @@ import {
   styled,
 } from "@mui/material";
 import { useMode } from "./theme";
+import Navbar from "../global/Navbar";
 
 const App: React.FC = () => {
   const [theme] = useMode();
@@ -18,11 +19,11 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container
-        disableGutters
+        
         maxWidth={false}
         style={{ backgroundColor: "#150E60" }}
       >
-        <nav>carine</nav>
+        <Navbar />
         <Layout />
       </Container>
     </ThemeProvider>
