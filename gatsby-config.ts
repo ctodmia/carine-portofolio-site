@@ -3,6 +3,9 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Carine Todmia`,
+    description: `A single page Reactjs application about Carine Todmia's software development journey`,
+    author: `Carine Todmia`,
+    image: `images/icon.png`,
     siteUrl: `https://www.yourdomain.tld`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
