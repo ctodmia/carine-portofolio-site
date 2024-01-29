@@ -1,27 +1,31 @@
-
 import * as React from "react";
 
 import Layout from "./layout";
-import { Box, Container, CssBaseline } from "@mui/material";
-
+import {
+  Box,
+  Container,
+  CssBaseline,
+  Theme,
+  ThemeProvider,
+  styled,
+} from "@mui/material";
+import { useMode } from "./theme";
 
 const App: React.FC = () => {
-  
+  const [theme] = useMode();
+
   return (
-    <>
-    <CssBaseline />
-      <Container disableGutters maxWidth={false} style={{backgroundColor: "#150E60"}}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container
+        disableGutters
+        maxWidth={false}
+        style={{ backgroundColor: "#150E60" }}
+      >
         <nav>carine</nav>
-        <Layout/>
+        <Layout />
       </Container>
-    </>
-    // <div className="app">
-    //     <main className="content">
-    //         <Layout/>
-    //     </main>
-    // </div>
+    </ThemeProvider>
   );
-}
-
+};
 export default App;
-
