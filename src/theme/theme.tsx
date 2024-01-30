@@ -115,13 +115,13 @@ export const themeSettings = (): ThemeOptions => {
     },
   };
 };
-
 // colormode
 export const ColorModeContext = createContext({
     toggleColorMode: () => {},
   });
   
-  export const useMode = () => {
+export const useMode = () => {
     const theme = useMemo(() => createTheme(themeSettings()), []);
     return [theme];
   };
+

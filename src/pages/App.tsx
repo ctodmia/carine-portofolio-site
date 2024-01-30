@@ -9,7 +9,7 @@ import {
   ThemeProvider,
   styled,
 } from "@mui/material";
-import { useMode } from "./theme";
+import  {useMode}  from "../theme/theme";
 import Navbar from "../global/Navbar";
 
 const App: React.FC = () => {
