@@ -4,13 +4,14 @@ import type { HeadFC, PageProps } from "gatsby";
 
 import App from "./App";
 import { SEO } from "../global/Seo";
+import PageContextProvider from "./PageContext";
 
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <>
+    <PageContextProvider>
       <App />
-    </>
+    </PageContextProvider>
   );
 };
 
