@@ -11,6 +11,8 @@ import React, {
     MutableRefObject
 
   } from "react";
+
+  import { isBrowser } from "../utils"
   
   // Define the context type
   interface PageContextType {
@@ -32,7 +34,7 @@ import React, {
   }) => {
     // Initialize state
     const [page, setPage] = useState<string>('about');
-
+ const container = window !== undefined ? () => window.document.body : undefined;
     const handleScroll = (event?: Event) => {
       const sections = document.querySelectorAll('.section');
       let current: string | null = null;
@@ -58,7 +60,9 @@ import React, {
     window.removeEventListener('scroll', handleScroll);
     useEffect(() => {
       
-      window.addEventListener('scroll',((event) => handleScroll(event)));
+      if(isBrowser()) {
+        window.addEventListener('scroll',((event) => handleScroll(event)));
+      }
       handleScroll(); // Initial check
       
       // return () => {
