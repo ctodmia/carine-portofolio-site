@@ -16,13 +16,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { usePage } from "../pages/index";
+import { isBrowser } from "../utils"
+
 
 const drawerWidth = 240;
 const navItems = ["latest", "about", "projects", "contact"];
 
 function Navbar() {
 
-  const container = window !== undefined ? () => window.document.body : undefined;
+  const container = isBrowser() ? () => window.document.body : undefined;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { page, setPage } = usePage();
 
