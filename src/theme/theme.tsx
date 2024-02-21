@@ -115,9 +115,7 @@ export const themeSettings = (): ThemeOptions => {
   };
 };
 // colormode
-export const ColorModeContext = createContext({
-    toggleColorMode: () => {},
-  });
+export const ColorModeContext = createContext({});
   
 export const useMode = () => {
     const theme = useMemo(() => createTheme(themeSettings()), []);

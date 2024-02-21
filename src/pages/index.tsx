@@ -4,10 +4,20 @@ import type { HeadFC, PageProps } from "gatsby";
 
 import App from "./App";
 import { SEO } from "../global/Seo";
-import PageContextProvider from "./PageContext";
+import PageContextProvider, { PageContext } from "./PageContext";
+  // Create a hook to use context
+  export function usePage() {
+    const context = React.useContext(PageContext);
+    if (context === undefined) {
+      console.warn("Context must be used within a Provider");
+    }
+    return context;
+  }
+  
 
 
 const IndexPage: React.FC<PageProps> = () => {
+
   return (
     <PageContextProvider>
       <App />

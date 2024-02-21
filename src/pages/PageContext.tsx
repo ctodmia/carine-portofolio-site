@@ -16,11 +16,11 @@ import React, {
   interface PageContextType {
     page:string,
     setPage:Dispatch<SetStateAction<string>>
-    handleScroll: (ev: Event) => void;
+    handleScroll: (ev: any) => void;
   }
   
   // Create the context
-  const PageContext = createContext<PageContextType | undefined>(undefined);
+  export const PageContext = createContext<PageContextType>({} as PageContextType);
   
   // Create the PokemonProvider component
   interface PageProviderProps {
@@ -40,13 +40,14 @@ import React, {
       sections.forEach((section) => {
         const sectionTop = section.getBoundingClientRect().top;
         const sectionHeight = section.clientHeight;
+        // console.log('what is the section top and height', sectionHeight, sectionTop)
 
-        if (sectionTop <= 0 && sectionTop + sectionHeight > 15) {
+        if (sectionTop <= 0 &&  sectionHeight + sectionTop  > 15) {
           current = section.id;
         }
       });
 
-      if (current !== null && current !==page) {
+      if (current !== null && current !== page) {
         window.history.replaceState({}, '', `#${current}`);
         if(current !== page) {
           setPage(current);
@@ -54,14 +55,14 @@ import React, {
       }
     };
 
+    window.removeEventListener('scroll', handleScroll);
     useEffect(() => {
       
-      window.addEventListener('scroll',((event) => handleScroll(event)));
+      // window.addEventListener('scroll',((event) => handleScroll(event)));
       handleScroll(); // Initial check
       
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
+      // return () => {
+      // };
     }, [handleScroll]);
   
 
@@ -73,13 +74,4 @@ import React, {
   };
   
   export default PageContextProvider;
-  
-  // Create a hook to use the PokemonContext
-  export function usePage() {
-    const context = useContext(PageContext);
-    if (context === undefined) {
-      throw new Error("Context must be used within a Provider");
-    }
-    return context;
-  }
   

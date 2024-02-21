@@ -2,15 +2,14 @@ import * as React from "react";
 import "./index.scss";
 import Layout from "./layout";
 import {
-  Box,
   Container,
   CssBaseline,
-  Theme,
-  ThemeProvider,
-  styled,
+  ThemeProvider
 } from "@mui/material";
-import  {useMode}  from "../theme/theme";
+import  {ColorModeContext, useMode}  from "../theme/theme";
 import Navbar from "../global/Navbar";
+import GlobalStyle from "../globalStyles";
+
 
 /**, #fff 10%,#0ceadc 50%,#4dd4ff 94% 
  * 
@@ -23,17 +22,19 @@ const App: React.FC = () => {
   const [theme] = useMode();
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Navbar />
-      <Container
-        
-        maxWidth={false}
-
-      >
-        <Layout />
-      </Container>
-    </ThemeProvider>
+    // <ColorModeContext.Provider value={theme}>
+    //   <ThemeProvider theme={theme}>
+        // <CssBaseline />,
+        <>
+          {/* <CssBaseline  /> */}
+          <GlobalStyle />
+          <Navbar />
+    
+          <Layout />
+         </>
+        // {/* </Container> */}
+      // {/* </ThemeProvider>
+    // </ColorModeContext.Provider> */}
   );
 };
 export default App;

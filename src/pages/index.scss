@@ -8,16 +8,13 @@ body,
   // height: 100;
   width: 100%;
   font-family: 'Source Sans Pro', sans-serif;
-  color: #ffffff;
-  margin-top: 50px;
-  background-color: #150E60;
+  // color: #ffffff;
+  
+  background: #150E60;
 }
 body {
   overflow: hidden;
 
-}
-.app {
-  display: flex; 
 }
 
 ::-webkit-scrollbar {

@@ -15,7 +15,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { usePage } from "../pages/PageContext";
+import { usePage } from "../pages/index";
 
 interface Props {
   /**
@@ -39,8 +39,8 @@ function Navbar(props: Props) {
   const handleNavigation = (page:string) => {
     const el = document.getElementById(page) 
     if(el) {
-      setPage(page);
       el?.scrollIntoView({behavior: "smooth"})
+      setPage(page);
     }
   }
 
@@ -81,7 +81,6 @@ function Navbar(props: Props) {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
           <IconButton
