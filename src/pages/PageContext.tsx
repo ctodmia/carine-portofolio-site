@@ -56,8 +56,9 @@ import React, {
         }
       }
     };
-
-    window.removeEventListener('scroll', handleScroll);
+    if(isBrowser()) {
+      window.removeEventListener('scroll', handleScroll);
+    }
     useEffect(() => {
       
       if(isBrowser()) {
