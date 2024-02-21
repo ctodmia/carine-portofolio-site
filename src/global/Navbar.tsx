@@ -17,22 +17,12 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { usePage } from "../pages/index";
 
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-}
-
 const drawerWidth = 240;
 const navItems = ["latest", "about", "projects", "contact"];
 
-function Navbar(props: Props) {
-  const { window } = props;
+function Navbar() {
 
-  const container =
-  window !== undefined ? () => window().document.body : undefined;
+  const container = window !== undefined ? () => window.document.body : undefined;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { page, setPage } = usePage();
 
