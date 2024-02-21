@@ -22,7 +22,7 @@ import React, {
   // Create the context
   export const PageContext = createContext<PageContextType>({} as PageContextType);
   
-  // Create the PokemonProvider component
+  // Create the PageProvider component
   interface PageProviderProps {
     children: ReactNode;
   }
@@ -58,7 +58,7 @@ import React, {
     window.removeEventListener('scroll', handleScroll);
     useEffect(() => {
       
-      // window.addEventListener('scroll',((event) => handleScroll(event)));
+      window.addEventListener('scroll',((event) => handleScroll(event)));
       handleScroll(); // Initial check
       
       // return () => {
