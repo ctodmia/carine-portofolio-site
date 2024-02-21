@@ -34,7 +34,7 @@ import React, {
   }) => {
     // Initialize state
     const [page, setPage] = useState<string>('about');
- const container = window !== undefined ? () => window.document.body : undefined;
+
     const handleScroll = (event?: Event) => {
       const sections = document.querySelectorAll('.section');
       let current: string | null = null;
